@@ -15,9 +15,14 @@ def upload():
         return redirect(url_for('index'))
     return render_template("upload.html")
 
+@app.route("/rules")
+def rules():
+    return render_template("rules.html")
+
 @app.route("/login")
 def login():
     return render_template("login.html")
 
 if __name__ == '__main__':
     app.run()
+
