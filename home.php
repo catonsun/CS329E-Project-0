@@ -9,10 +9,10 @@
         <h1>Welcome to our Pet Gallery!</h1>
         <br>
         <p>This is a simple gallery for pet lovers to upload pictures of their lovely pets! <br> We hope you enjoy!<br\></p>
+        <a href="login.html">Click here to login</a>
+        <br>
         <a href="upload.html">Click here to upload</a>
         <br>
-        <a href="login.html">Click here to login</a>
-            <br>
         <a href="rules.html">Click here to view rules</a>
         <br>
         <?php
