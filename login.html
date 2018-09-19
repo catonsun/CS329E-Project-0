@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<javascript>
+<script>
     var admin = ["admin", "123456"]
     var regular = ["Caton", "password", "Connie", "password", "Kevin", "password", "James", "password", "Grace", "password"]
     var correct = False
     var accessLevel = ""
-    func ifPressed() {
+    function ifPressed() {
         if(admin[0] == "admin" && admin[1] == "123456") {
             correct = True;
-            return accessLevel = "admin"
+            return accessLevel = "admin";
         }
         for (i = 0 ; i < regular.length - 1; i++) {
             if(regular[i] == document.getElementById("username") && regular[i++] == document.getElementById("password") {
                 correct = True;
-                return accessLevel = "regular"
+                return accessLevel = "regular";
             }
         }
     }
-</javascript>
+</script>
 <body>
     <center>
     <h1>Login Here!</h1>
