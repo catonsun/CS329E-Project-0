@@ -1,5 +1,24 @@
 <!DOCTYPE html>
+<javascript>
+    var admin = ["admin", "123456"]
+    var regular = ["Caton", "password", "Connie", "password", "Kevin", "password", "James", "password", "Grace", "password"]
+    var correct = False
+    var accessLevel = ""
+    func ifPressed() {
+        if(admin[0] == "admin" && admin[1] == "123456") {
+            correct = True;
+            return accessLevel = "admin"
+        }
+        for (i = 0 ; i < regular.length - 1; i++) {
+            if(regular[i] == document.getElementById("username") && regular[i++] == document.getElementById("password") {
+                correct = True;
+                return accessLevel = "regular"
+            }
+        }
+    }
+</javascript>
 <body>
+    <center>
     <h1>Login Here!</h1>
     <form>
         <label>Username</label>
@@ -9,8 +28,12 @@
         <label>Password</label>
         <input type = "text"
             id = "password" />
-        <br>
-        <br>
-        <a href="submit.html">Submit Login</a>
+        <br> <br> <br>
+        <input type="submit" value="Submit" onclick="ifPressed()">
+        <br> <br>
+        <a href="home.php">Continue as Guest</a>
     </form>
+    </center>
+</body>
+<body style = "background-color:lightcyan">
 </body>
