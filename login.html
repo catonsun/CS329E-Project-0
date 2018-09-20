@@ -13,7 +13,7 @@
     var admin = ["admin", "123456"]
     var regular = ["Caton", "password", "Connie", "password", "Kevin", "password", "James", "password", "Grace", "password"]
     var correct = false;
-    var accessLevel = ""
+    var accessLevel = -1
 
     function ifPressed() {
         user = document.getElementById("username");
@@ -25,11 +25,13 @@
         localStorage.setItem("password", password.value);
 
         if(admin[0] == "admin" && admin[1] == "123456") {
+            localStorage.setItem("accessLevel", 1);
             correct = True;
             return correct;
         }
         for (i = 0 ; i < regular.length - 1; i++) {
             if(regular[i] == document.getElementById("username") && regular[i++] == document.getElementById("password")) {
+                localStorage.setItem("accessLevel", 0);
                 correct = True;
                 return correct;
             }
