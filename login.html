@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <script>
+
+
+
+
+    var user = localStorage.getItem("user");
+    var password = localStorage.getItem("password");
+
+    console.log(user);
+    console.log(password);
+
     var admin = ["admin", "123456"]
     var regular = ["Caton", "password", "Connie", "password", "Kevin", "password", "James", "password", "Grace", "password"]
-    var correct = False
+    var correct = false;
     var accessLevel = ""
+
     function ifPressed() {
+        user = document.getElementById("username");
+        password = document.getElementById("password");
+        console.log(user.value);
+        console.log(password.value);
+
+        localStorage.setItem("user", user.value);
+        localStorage.setItem("password", password.value);
+
         if(admin[0] == "admin" && admin[1] == "123456") {
             correct = True;
-            return accessLevel = "admin";
+            return correct;
         }
         for (i = 0 ; i < regular.length - 1; i++) {
-            if(regular[i] == document.getElementById("username") && regular[i++] == document.getElementById("password") {
+            if(regular[i] == document.getElementById("username") && regular[i++] == document.getElementById("password")) {
                 correct = True;
-                return accessLevel = "regular";
+                return correct;
             }
         }
     }

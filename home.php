@@ -1,5 +1,18 @@
 <!DOCTYPE html>
+
+
 <html>
+<script>
+
+    var obj1 = localStorage.user;
+    console.log(obj1);
+
+    var obj2 = localStorage.password;
+    console.log(obj2);
+
+
+
+</script>
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="home.css">
