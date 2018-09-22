@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="messages.css">
+<html>
+    <body style="background-color:lightcyan">
+        <center>
+            <script>
+                function postMessage() {
+                    localStorage.setItem("message", document.getElementById("txt").value);
+                    console.log(localStorage.getItem("message"));
+                    var x = document.getElementById("msg");
+                    x.innerHTML = localStorage.getItem("message");
+                }
+            </script>   
+            <a href="home.php">Click here to return to Home</a>
+            <p>
+                <textarea placeholder="Leave a recent note or update for yourself other admins!" id="txt"></textarea>
+            </p>
+            <p>
+                <button onclick="postMessage()">Post your message!</button>
+            </p><br>
+            <p id="msg">No previous message.</p>
+            <script>
+                document.getElementById("msg").innerHTML = localStorage.getItem("message");
+            </script>     
+            
+        </center>
+    </body>
+</html>

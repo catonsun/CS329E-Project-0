@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <script>
-
-
-
-
     var user = localStorage.getItem("user");
     var password = localStorage.getItem("password");
-
-    console.log(user);
-    console.log(password);
-
-    var admin = ["admin", "123456"]
-    var regular = ["Caton", "password", "Connie", "password", "Kevin", "password", "James", "password", "Grace", "password"]
-    var correct = false;
-    var accessLevel = -1
-
+    var admin = ["admin", "123456"];
+    var regularuser = ["Caton", "Connie", "Kevin", "James", "Grace"];
+    var regularpassword = ["password", "password", "password", "password", "password"];
+    var accessLevel = -1;
     function ifPressed() {
-        user = document.getElementById("username");
-        password = document.getElementById("password");
-        console.log(user.value);
-        console.log(password.value);
-
-        localStorage.setItem("user", user.value);
-        localStorage.setItem("password", password.value);
-
-        if(admin[0] == "admin" && admin[1] == "123456") {
+        user = document.getElementById("username").value;
+        password = document.getElementById("password").value;
+        console.log(user);
+        console.log(password);
+        localStorage.setItem("user", user);
+        localStorage.setItem("password", password);
+        if(user == admin[0] && password == admin[1]) {
             localStorage.setItem("accessLevel", 1);
-            correct = True;
-            return correct;
+            console.log("admin accepted");
+            return true;
         }
-        for (i = 0 ; i < regular.length - 1; i++) {
-            if(regular[i] == document.getElementById("username") && regular[i++] == document.getElementById("password")) {
-                localStorage.setItem("accessLevel", 0);
-                correct = True;
-                return correct;
+        else {
+            var flag = false;
+            for (var i = 0; i < regularuser.length; i++) {
+                if (user == regularuser[i] && password == regularpassword[i]) {
+                    flag = true;
+                    localStorage.setItem("accessLevel", 0);
+                    console.log("user accepted");
+                }
             }
+            if (!flag) {
+                localStorage.setItem("accessLevel", -1);
+                console.log("guest accepted");
+            }
+            return true;
         }
+        
+    }
+    function continueGuest() {
+        localStorage.setItem("accessLevel", -1);
     }
 </script>
 <head>
@@ -47,7 +48,7 @@
     <center>
     <h1>Login Here!</h1>
     <img src="https://images-na.ssl-images-amazon.com/images/I/81Q4ejK3xZL._SY355_.png">
-    <form>
+    <form action="submit.html">
         <label>Username</label>
         <input type = "text"
             id = "username" />
@@ -58,7 +59,9 @@
         <br> <br> <br>
         <input type="submit" value="Submit" onclick="ifPressed()">
         <br> <br>
-        <a href="home.php">Continue as Guest</a>
+        <button onclick="continueGuest()">
+            <a href="home.php">Continue as Guest</a>
+        </button>
     </form>
     </center>
 </body>
