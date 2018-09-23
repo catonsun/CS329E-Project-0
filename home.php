@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -19,12 +18,20 @@
             <a href="upload.html" id="upload">Click here to upload</a><br>
             <a href="messages.html" id="messages">Click here to post a message (admin only)</a><br>
             <script>
+                var firstLoad = localStorage.getItem("firstLoad");
+                // boolean that returns true if first time loading
+                // sets a value for firstLoad
+                if(firstLoad != "True") {
+                // first time loaded!
+                localStorage.setItem("accessLevel", -1);
+                localStorage.setItem("firstLoad", "True");
+                }
+
                 if (localStorage.getItem("accessLevel") == -1) {
                     var x = document.getElementById("upload");
                     x.style.display = "none";
                     x = document.getElementById("messages");
                     x.style.display = "none";
-
                 }
                 else if (localStorage.getItem("accessLevel") == 0) {
                     var x = document.getElementById("upload");
